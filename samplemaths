@@ -1,0 +1,33 @@
+# angular
+<!DOCTYPE html>
+<html ng-app="myapp" ng-controller="myctrl">
+<head>
+	<title>task</title>
+</head>
+<body>
+
+<form>
+	<input type="text" placeholder="firstname" ng-model="firstname" />
+	<input type="text" placeholder="lastname" ng-model="lastname" />
+	<input type="value" placeholder="enter value1" ng-model="value1" />
+	<input type="value" placeholder="enter value2" ng-model="value2" />
+	<input type="submit" value="submit" ng-click="submit()" />
+</form>
+		<hr>
+<div>
+	the output is : {{output}}
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"> </script>
+
+<script type="text/javascript">
+var APP = angular.module("myapp",[]);
+APP.controller("myctrl",function($scope){
+$scope.submit = function(){
+		
+$scope.output = $scope.firstname  + "  "+ $scope.lastname + "  "+$scope.value1 * 
+		$scope.value2
+		}  
+	});
+</script>
+</body>
+</html>
