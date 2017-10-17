@@ -1,0 +1,60 @@
+# angular
+<!DOCTYPE html>
+<html ng-app="myapp" ng-controller="myctrl">
+<head>
+	<title> angular ui routing</title>
+</head>
+<body>
+{{5+5}}
+
+<a ui-sref="main"> main </a>
+<a ui-sref="features"> about </a>
+
+<div ui-view>
+	
+</div>
+
+<script type="text/javascript" src="js/angular.min.js"> </script>
+
+<script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+
+<script type="text/javascript" src="js/app.js"></script>
+
+<script type="text/javascript">
+	
+var APP = angular.module("myapp",['ui.router']);
+APP.controller("myctrl",function(){
+
+});
+
+APP.config(function($stateProvider, $urlRouterProvider){
+	$urlRouterProvider.otherwise("/main");
+	$stateProvider
+	.state('main', {
+		url: "/main",
+		templateUrl: "views/main.html"
+	})
+
+	.state('main.main1', {
+		url: "/main1",
+		templateUrl: "views/main1.html"
+	})
+
+	.state('features', {
+		url: "/features",
+		templateUrl: "views/about.html"
+	})
+	/*.state('prices', {
+		url: "/prices",
+		templateUrl: "views/prices.html"
+	})
+*/
+	
+
+	
+	
+});
+
+</script>
+</body>
+</html>
