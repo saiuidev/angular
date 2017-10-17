@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="MyApp" ng-controller="MyCtrl">
+<head>
+	<title>Angular</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+	<header>
+		<h1>Main html calling</h1>
+<table class="table">
+    <thead>
+      <tr>
+      <th>S.NO</th>
+      <th>Profile Pic</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="detail in detailes">
+      <td>{{ $index ++1 }}</td>
+      <td><img style="width:100px;height: 100px;" ng-src="{{ detail.file }}"></td>
+        <td>{{ detail.firstname }} </td>
+        <td>{{ detail.lastname }} </td>
+        <td>{{ detail.email }}</td>
+        <td><input type="button" name="" value="Delete" ng-click="RemoveData($index)"></td>
+      </tr>
+    </tbody>
+  </table>
+  <form>
+  <input type="file" id="fileInput" name="">
+  	<input type="text" name="" placeholder="Firstname" ng-model="data.firstname">
+  	<input type="text" name="" placeholder="lastname" ng-model="data.lastname">
+  	<input type="email" name="" placeholder="email" ng-model="data.email">
+  	<input type="submit" name="" value="submit" ng-click="Add()">
+  </form>
+  <div class="cropArea">
+    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+  </div>
+  <div>Cropped Image:</div>
+  <div><img ng-src="{{myCroppedImage}}" /></div>
+	</header>
+		
+
+	<script type="text/javascript" src="scripts/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/ng-img-crop.js"></script>
+	<script type="text/javascript" src="scripts/app.js"></script>
+</body>
+</html>
