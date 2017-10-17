@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="MyAPP" ng-controller="MyCtrl">
+<head>
+	<title>ANgular</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<h1>{{ 4+6 }}</h1>
+
+
+	 <table class="table">
+    <thead>
+      <tr>
+      <th>S.NO</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="detail in detailescrick">
+      <td>{{ $index ++1 }}</td>
+        <td>{{ detail.firstname }} </td>
+        <td>{{ detail.lastname }} </td>
+        <td>{{ detail.email }}</td>
+        <td><input type="button" name="" value="Delete" ng-click="RemoveData($index)"></td>
+      </tr>
+    </tbody>
+  </table>
+  <form>
+  	<input type="text" name="" placeholder="Firstname" ng-model="data.firstname">
+  	<input type="text" name="" placeholder="lastname" ng-model="data.lastname">
+  	<input type="email" name="" placeholder="email" ng-model="data.email">
+  	<input type="submit" name="" value="submit" ng-click="Add()">
+  </form>
+	<script type="text/javascript" src="angular-min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript">
+		var APP = angular.module("MyAPP", []);
+		APP.controller("MyCtrl", function($scope){
+	
+			console.log("data", $scope.names);
+			$scope.crickets = $scope.names;
+			$scope.detailes = [
+				{
+					"firstname" : "Rohit",
+					"lastname" : "sharma",
+					"email": "roitsharma@gmail.com"
+				},
+				{
+					"firstname" : "sachin",
+					"lastname" : "ten",
+					"email": "sachin@gmail.com"
+				},
+
+			]
+			console.log("array of objects", $scope.detailes);
+			$scope.detailescrick = $scope.detailes;
+
+			$scope.Add = function(){
+				// alert("working function")
+				console.log("add data", $scope.data);
+				$scope.detailes.push($scope.data);
+				$scope.data = null;
+
+			}
+			$scope.RemoveData = function(obj){
+				console.log("index value", obj);
+				$scope.detailes.splice(obj, 1)
+			}
+		})
+	</script>
+</body>
+</html>
