@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp" ng-controller="myctrl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ANGULAR WIZARD</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/angular-wizard.min.css">
+  </head>
+  <body>
+    {{5+5}}
+      <wizard on-finish="finishedWizard()" on-cancel="cancelledWizard()"> 
+        <wz-step wz-title="Starting">
+        
+          <form name="myform">
+          <h2>persional details </h2>
+            <div class="form-group">
+                <input type="text" class="form-control"  placeholder="enter firstname" ng-model="firstname" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control"  placeholder="enter lastname" ng-model="lastname" required="">
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="enter Password" ng-model="password" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="re-enter Password" ng-model="repassword" required="">
+            </div>
+            
+            <input type="submit" class="btn btn-default" wz-next value="NextStep" ng-disabled="!myform.$valid" ng-click="NextStep()" />
+          </form>
+              
+        </wz-step>
+
+
+            
+            <wz-step wz-title="Continuing">
+                  
+            <form name="myform">
+            <h2>contact details </h2>
+                <div class="form-group">
+                  <input type="email" class="form-control"  placeholder="enter email" ng-model="email" required="">
+                </div>
+                <div class="form-group">
+                  <input type="value" class="form-control"  placeholder="enter value" ng-model="mobilenumber" required="">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" class="form-control"  placeholder="enter Address" ng-model="address" required="">
+                </div>
+                <input type="submit" class="btn btn-default" wz-next value="NextStep" ng-disabled="!myform.$valid" ng-click="NextStep()"/>
+             </form>
+          </wz-step>
+
+            <wz-step wz-title="finished">
+            <form name="myform"> 
+            <h2> Qualification & location</h2>
+                <div class="form-group">
+                  <input type="text" class="form-control"  placeholder="enter Qualification" ng-model="data.qualification" required="">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" class="form-control"  placeholder="enter Specality" 
+                  ng-model="data.Specality" required="">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" class="form-control"  placeholder="enter location" 
+                  ng-model="data.location" required="" >
+                </div>
+                  <input type="submit" class="btn btn-default" wz-next value="Finished" ng-disabled="!myform.$valid" ng-click="LastStep()"/>
+              </form>
+            </wz-step>
+          
+          </wizard>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js" ></script>
+    <script src="js/app.js"></script>
+     <script type="text/javascript" src="js/angular-wizard.min.js"></script>
+  </body>
+</html>
