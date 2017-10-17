@@ -1,0 +1,44 @@
+# angular
+<!DOCTYPE html>
+<html ng-app="myapp" ng-controller="myctrl">
+<head>
+	<title> ng options </title>
+</head>
+<body>
+
+<div ng-repeat=" students in student">
+	{{students.firstname}}
+	{{students.id}}
+</div>
+<hr>
+
+<select ng-model="options" ng-init = "options = student[0]" ng-options=" students.id for students in student">
+
+</select>
+<div>
+	{{options.firstname}}
+	{{options.id}}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script type="text/javascript">
+	var APP = angular.module("myapp",[]);
+	APP.controller("myctrl",function($scope){
+
+		$scope.student = [
+		{
+			"firstname" : "sai",
+			"id" 		: 1    
+		},
+
+		{
+			"firstname" : "ram",
+			"id" 		: 2    
+		}
+		];
+
+		console.log($scope.student);
+	});
+</script>
+</body>
+</html>
