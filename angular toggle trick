@@ -1,0 +1,30 @@
+# angular
+<!DOCTYPE html>
+<html ng-app="myapp" ng-controller="mycontroller">
+<head>
+	<title> angu </title>
+</head>
+<body>
+{{5+5}}
+
+	<div ng-click="show=!show">
+		angular click
+	</div>
+
+	<div ng-if="show">
+		show div
+	</div>
+
+
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		var APP = angular.module("myapp",[]);
+		APP.controller("mycontroller",function($scope){
+					//alert("working");
+		});
+
+	</script>
+</body>
+</html>
