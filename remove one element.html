@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="FirstApp" ng-controller="FirstCtrl">
+<head>
+	<title>Index 5</title>
+	<style>
+         table {
+   
+    border-collapse: collapse;
+    width: 100%;
+       }
+       td, th {
+      border: 1px solid black;
+    text-align: left;
+   padding:8px; 
+      }
+</style>
+</head>
+<body>
+
+<!-- <div ng-repeat="name in names">{{ name }}</div> -->
+<hr>
+
+<table >
+  <tr>
+    <th>Name</th>
+    <th>Place</th>
+    <th>income</th>
+    <th>phone Number</th>
+    <th>Action</th>
+    <th>Index value</th>
+  </tr>
+   <tr ng-repeat="x in data">
+     <td>{{ x.name }}</td>
+     <td> {{ x.place }}</td>
+     <td> {{ x.income | currency: ' RS ' }}</td>
+     <td>  {{ x.phonenumber }}</td>
+     <td><input type="button" name="" value="Remove" ng-click="RemoveData(x)"/></td>
+     <td>{{ $index }}</td>
+   </tr>
+</table>
+
+
+<..<form name="FormName">
+	<input type="text" name="name" placeholder="name" ng-model="datanill.name" required="" />
+	<input type="text" name="place" placeholder="place" ng-model="datanill.place" required="" />
+	<input type="number" name="number" placeholder="income" ng-model="datanill.phonenumber" required="" />
+	
+	<input type="number" name="income" placeholder="phone number" ng-model="datanill.income" required="" />
+
+	<input type="submit" name="" value="submit" ng-click="addData()" ng-disabled="!FormName.$valid" required="" />
+
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+	var APP = angular.module("FirstApp", []);
+	APP.controller("FirstCtrl", function($scope){
+		$scope.names = [
+			"rohit",
+			"dravid",
+			"sachin"
+		];
+		// console.log("names", $scope.names);
+
+		$scope.data = [
+			{
+				"name": "SRAVAN",
+				"place": "TELANGANA",
+				"income": 12000,
+				"phonenumber": 9893949339
+			},
+			{
+				"name": "PRAVEEN",
+				"place": "mumbai",
+				"income": 18000,
+				"phonenumber": 7384837487
+			},
+			{
+				"name": "GANA",
+				"place": "dehli",
+				"income": 10000,
+				"phonenumber": 3284329499
+			}
+		]
+		console.log("all data", $scope.data)
+		$scope.addData = function(){
+			// console.log("data comes in form", $scope.data);
+			$scope.data.push({name:$scope.datanill.name, place: $scope.datanill.place, income:$scope.datanill.income, phonenumber:$scope.datanill.phonenumber})
+			$scope.datanill = null;
+		}
+
+		/*angular.forEach($scope.data, function(obj){
+			console.log("for each data", obj.income);
+			$scope.incomeRemove = obj.income;
+		})*/
+
+		$scope.RemoveData = function(x){
+			// $scope.data.splice(x, 1)
+			console.log("data hello@@@@@@@", x.income);
+			x.income = null;
+		}
+	});
+</script>
+</body>
+</html>
