@@ -1,3 +1,81 @@
 dynamically changing div and background colors
 https://www.tutorialrepublic.com/faq/how-to-change-the-background-color-of-a-web-page-using-javascript.php
 https://stackoverflow.com/questions/197748/how-do-i-change-the-background-color-with-javascript
+
+on-scroll fixed div, footer touch hide..
+https://jsfiddle.net/v4xoqta0/
+html
+<body>
+	<p class="big-p">Lorem ipsum</p>
+	<div class="x"></div>
+	<div class="footer-home"></div>
+</body>
+css
+* { box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+.big-p { height: 2000px; }
+.x { position: fixed; left: 10px; top: 50%; width: 200px; height: 200px; background: #f00; }
+.footer-home { background: #0f0; height: 400px; }
+.hidden { visibility: hidden; }
+js
+$(window).scroll(function() {
+if ($('.x').offset().top + $('.x').outerHeight() > $('.footer-home').offset().top) {
+$('.x').addClass('hidden');
+} else {
+$('.x').removeClass('hidden');
+}
+});
+
+pdf generator
+https://jsfiddle.net/damithz/Lo7kznLu/
+
+download html content
+http://jsfiddle.net/evx9stLb/
+
+model pop-up
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
+
+set-height and width of the DIV
+https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-set-the-width-of-a-div-element
+https://www.tutorialrepublic.com/codelab.php?topic=faq&file=jquery-set-the-height-of-a-div-element
+
+over lay
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_overlay_no-anim
+
+progress bars
+https://codepen.io/anon/pen/dwYoMe
+https://codepen.io/andytran/pen/ZWKdzQ
+https://codepen.io/PatrickvD/pen/XxgvjK?page=1&
+
+position absolute, text-aligh center
+position:absolute;
+left:0;
+right:0;
+margin-left:auto;
+margin-right:auto;
+
+on-click, colors change div
+https://jsfiddle.net/jdniki/UaT3P/
+
+top-and bottom arrows,
+https://codepen.io/lucascalazans/pen/Lkmgxg
+https://codepen.io/chrisgosling/pen/nmaIb
+https://bootsnipp.com/snippets/Q6zjv
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion_symbol
+https://codepen.io/Sfate/pen/nLBGr
+https://codepen.io/mrosati84/pen/AgDry
+
+css-arroes
+https://www.w3schools.com/howto/howto_css_arrows.asp
+
+res-media quries for sass
+http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32
+
+on-click toddle, menu
+https://codepen.io/Tont/pen/hdsev
+
+flex-boxes
+https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_flex-wrap_nowrap8
+https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_justify-content_center
+
+
+
